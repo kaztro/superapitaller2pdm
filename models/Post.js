@@ -1,6 +1,6 @@
 const mongoose =  require('mongoose');
 
-let PostModel = new mongoose.Schema({
+let CoinModel = new mongoose.Schema({
     name: { type: String },
     value: { type: Number },
     value_us: { type: Number },
@@ -10,4 +10,4 @@ let PostModel = new mongoose.Schema({
     image: { type: String }
 });
 
-module.exports = mongoose.model('Post', PostModel);
+module.exports = mongoose.model('Post', CoinModel);

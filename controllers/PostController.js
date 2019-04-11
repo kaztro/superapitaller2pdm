@@ -1,5 +1,5 @@
 const mongoose = require('mongoose'),
-    postModel = require('../models/Post');
+    coinModel = require('../models/Post');
 
 const PostController = {};
 
@@ -15,7 +15,7 @@ PostController.create = function (req, res) {
         image: req.body.image
     };
     // Crear un objeto post
-    let nuevoPost = new postModel(data);
+    let nuevoPost = new coinModel(data);
     // Guardar en la base datos
     nuevoPost.save(function (err, guardado) {
         if (err) {
@@ -29,7 +29,7 @@ PostController.create = function (req, res) {
 
 PostController.getAll = function (req, res) {
     // Obtener todos los post de la base datos
-    postModel.find({}, function (err, posts) {
+    coinModel.find({}, function (err, posts) {
         if (err) {
             res.status(500);
             res.json({ code: 500, err });
@@ -42,7 +42,7 @@ PostController.getAll = function (req, res) {
 
 PostController.get = function (req, res) {
     // Buscar por id, el psot
-    postModel.findOne({ _id: req.params.id }, function (err, post) {
+    coinModel.findOne({ _id: req.params.id }, function (err, post) {
         if (err) {
             res.status(500);
             res.json({ code: 500, err });
@@ -81,7 +81,7 @@ PostController.update = function (req, res) {
 
 PostController.delete = function (req, res) {
     // intentar eliminar
-    postModel.findByIdAndRemove(req.params.id, function (err, eleminado) {
+    coinModel.findByIdAndRemove(req.params.id, function (err, eleminado) {
         if (err) {
             res.status(500);
             res.json({ code: 500, err });
