@@ -5,14 +5,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var bodyParser = require('body-parser');
+//var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var postRouter = require('./routes/post');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/repaso', { useNewUrlParser: true })
+mongoose.connect('mongodb://kaz:ABC123@ds129560.mlab.com:29560/pdm_taller_2', { useNewUrlParser: true })
   .then(() => console.log('Mogoose is Conected'))
   .catch((err) => {
     console.log(err);
