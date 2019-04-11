@@ -14,10 +14,7 @@ var usersRouter = require('./routes/users');
 var postRouter = require('./routes/post');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://kaz:ABC123@ds129560.mlab.com:29560/pdm_taller_2', {
-  useNewUrlParser: true,
-  useCreateIndex: true
-})
+mongoose.connect('mongodb://kaz:ABC123@ds129560.mlab.com:29560/pdm_taller_2', { useNewUrlParser: true })
   .then(() => console.log('Mogoose is Conected'))
   .catch((err) => {
     console.log(err);
