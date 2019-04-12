@@ -7,7 +7,7 @@ router.post('/', CoinController.create);
 
 // Read
 router.get('/', CoinController.getAll);
-router.get('/:id', CoinController.get);
+router.get('/:id', CoinController.getID);
 
 // Update
 router.put('/:id', CoinController.update);

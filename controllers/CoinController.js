@@ -37,15 +37,8 @@ CoinController.getAll = function (req, res) {
     });
 };
 
-CoinController.get = function (req, res) {
-    coinModel.findOne({ _id: req.params.id }, function (err, coin) {
-        if (err) {
-            res.status(500);
-            res.json({ code: 500, err });
-        } else {
-            res.json({ ok: true, post: coin });
-        }
-    });
+CoinController.getID = function (req, res) {
+    useParamToSearch({ _id: req.params.id });
 }
 
 CoinController.update = function (req, res) {
@@ -80,5 +73,16 @@ CoinController.delete = function (req, res) {
         }
     });
 };
+
+let useParamToSearch = function (param) {
+    coinModel.findOne(param, function (err, coin) {
+        if (err) {
+            res.status(500);
+            res.json({ code: 500, err });
+        } else {
+            res.json({ ok: true, post: coin });
+        }
+    });
+}
 
 module.exports = CoinController;
