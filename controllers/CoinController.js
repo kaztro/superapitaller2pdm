@@ -37,8 +37,40 @@ CoinController.getAll = function (req, res) {
     });
 };
 
-CoinController.getID = function (req, res) {
+CoinController.getId = function (req, res) {
     useParamToSearch({ _id: req.params.id });
+}
+
+CoinController.getName = function (req, res) {
+    useParamToSearch({ name: req.params.name });
+}
+
+CoinController.getCountry = function (req, res) {
+    useParamToSearch({ country: req.params.country });
+}
+
+CoinController.getValue = function (req, res) {
+    useParamToSearch({ value: req.params.value });
+}
+
+CoinController.getVU = function (req, res) {
+    useParamToSearch({ value_us: req.params.value_us });
+}
+
+CoinController.getYear = function (req, res) {
+    useParamToSearch({ year: req.params.year });
+}
+
+CoinController.getReview = function (req, res) {
+    useParamToSearch({ review: req.params.review });
+}
+
+CoinController.getAvailable = function (req, res) {
+    useParamToSearch({ isAvailable: req.params.isAvailable });
+}
+
+CoinController.getImage = function (req, res) {
+    useParamToSearch({ image: req.params.image });
 }
 
 CoinController.update = function (req, res) {
