@@ -7,15 +7,15 @@ router.post('/', CoinController.create);
 
 // Read
 router.get('/', CoinController.getAll);
-router.get('/:id', CoinController.getId);
-router.get('/:name', CoinController.getName);
-router.get('/:country', CoinController.getCountry);
-router.get('/:value', CoinController.getValue);
-router.get('/:value_us', CoinController.getVU);
-router.get('/:year', CoinController.getYear);
-router.get('/:review', CoinController.getReview);
-router.get('/:isAvailable', CoinController.getAvailable);
-router.get('/:image', CoinController.getImage);
+router.get('/id/:id', CoinController.getId);
+router.get('/name/:name', CoinController.getName);
+router.get('/country/:country', CoinController.getCountry);
+router.get('/value/:value', CoinController.getValue);
+router.get('/value_us/:value_us', CoinController.getVU);
+router.get('/year/:year', CoinController.getYear);
+router.get('/review/:review', CoinController.getReview);
+router.get('/available/:isAvailable', CoinController.getAvailable);
+router.get('/image/:image', CoinController.getImage);
 
 // Update
 router.put('/:id', CoinController.update);
