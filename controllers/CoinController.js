@@ -6,6 +6,7 @@ const CoinController = {};
 CoinController.create = function (req, res) {
     let data = {
         name: req.body.name,
+        country: req.body.country,
         value: req.body.value,
         value_us: req.body.value_us,
         year: req.body.year,
@@ -50,6 +51,7 @@ CoinController.get = function (req, res) {
 CoinController.update = function (req, res) {
     let update = {
         name: req.body.name,
+        country: req.body.country,
         value: req.body.value,
         value_us: req.body.value_us,
         year: req.body.year,
