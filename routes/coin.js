@@ -18,9 +18,9 @@ router.get('/available/:isAvailable', CoinController.getAvailable);
 router.get('/image/:image', CoinController.getImage);
 
 // Update
-router.put('/:id', CoinController.update);
+router.put('/id/:id', CoinController.update);
 
 // Delete
-router.delete('/:id', CoinController.delete);
+router.delete('/id/:id', CoinController.delete);
 
 module.exports = router;
