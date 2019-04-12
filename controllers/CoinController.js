@@ -38,39 +38,39 @@ CoinController.getAll = function (req, res) {
 };
 
 CoinController.getId = function (req, res) {
-    useParamToSearch({ _id: req.params.id });
+    useParamToSearch({ _id: req.params.id }, res);
 }
 
 CoinController.getName = function (req, res) {
-    useParamToSearch({ name: req.params.name });
+    useParamToSearch({ name: req.params.name }, res);
 }
 
 CoinController.getCountry = function (req, res) {
-    useParamToSearch({ country: req.params.country });
+    useParamToSearch({ country: req.params.country }, res);
 }
 
 CoinController.getValue = function (req, res) {
-    useParamToSearch({ value: req.params.value });
+    useParamToSearch({ value: req.params.value }, res);
 }
 
 CoinController.getVU = function (req, res) {
-    useParamToSearch({ value_us: req.params.value_us });
+    useParamToSearch({ value_us: req.params.value_us }, res);
 }
 
 CoinController.getYear = function (req, res) {
-    useParamToSearch({ year: req.params.year });
+    useParamToSearch({ year: req.params.year }, res);
 }
 
 CoinController.getReview = function (req, res) {
-    useParamToSearch({ review: req.params.review });
+    useParamToSearch({ review: req.params.review }, res);
 }
 
 CoinController.getAvailable = function (req, res) {
-    useParamToSearch({ isAvailable: req.params.isAvailable });
+    useParamToSearch({ isAvailable: req.params.isAvailable }, res);
 }
 
 CoinController.getImage = function (req, res) {
-    useParamToSearch({ image: req.params.image });
+    useParamToSearch({ image: req.params.image }, res);
 }
 
 CoinController.update = function (req, res) {
@@ -106,7 +106,7 @@ CoinController.delete = function (req, res) {
     });
 };
 
-let useParamToSearch = function (param) {
+let useParamToSearch = function (param, res) {
     coinModel.findOne(param, function (err, coin) {
         if (err) {
             res.status(500);
