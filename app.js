@@ -10,7 +10,7 @@ var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var postRouter = require('./routes/post');
+var postRouter = require('./routes/coin');
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://kaz:ABC123@ds129560.mlab.com:29560/pdm_taller_2', { useNewUrlParser: true })
