@@ -38,39 +38,102 @@ CoinController.getAll = function (req, res) {
 };
 
 CoinController.getId = function (req, res) {
-    useParamToSearch({ _id: req.params.id }, res);
+    coinModel.findOne({ _id: req.params.id }, function (err, coin) {
+        if (err) {
+            res.status(500);
+            res.json({ code: 500, err });
+        } else {
+            res.json({ ok: true, post: coin });
+        }
+    });
 }
 
 CoinController.getName = function (req, res) {
-    useParamToSearch({ name: req.params.name }, res);
+    coinModel.findOne({ name: req.params.name }, function (err, coin) {
+        if (err) {
+            res.status(500);
+            res.json({ code: 500, err });
+        } else {
+            res.json({ ok: true, post: coin });
+        }
+    });
 }
 
 CoinController.getCountry = function (req, res) {
-    useParamToSearch({ country: req.params.country }, res);
+    coinModel.findOne({ country: req.params.country }, function (err, coin) {
+        if (err) {
+            res.status(500);
+            res.json({ code: 500, err });
+        } else {
+            res.json({ ok: true, post: coin });
+        }
+    });
 }
 
 CoinController.getValue = function (req, res) {
-    useParamToSearch({ value: req.params.value }, res);
+    coinModel.findOne({ value: req.params.value }, function (err, coin) {
+        if (err) {
+            res.status(500);
+            res.json({ code: 500, err });
+        } else {
+            res.json({ ok: true, post: coin });
+        }
+    });
 }
 
 CoinController.getVU = function (req, res) {
-    useParamToSearch({ value_us: req.params.value_us }, res);
+    coinModel.findOne({ value_us: req.params.value_us }, function (err, coin) {
+        if (err) {
+            res.status(500);
+            res.json({ code: 500, err });
+        } else {
+            res.json({ ok: true, post: coin });
+        }
+    });
 }
 
 CoinController.getYear = function (req, res) {
-    useParamToSearch({ year: req.params.year }, res);
+    coinModel.findOne({ year: req.params.year }, function (err, coin) {
+        if (err) {
+            res.status(500);
+            res.json({ code: 500, err });
+        } else {
+            res.json({ ok: true, post: coin });
+        }
+    });
 }
 
 CoinController.getReview = function (req, res) {
-    useParamToSearch({ review: req.params.review }, res);
+    coinModel.findOne({ review: req.params.review }, function (err, coin) {
+        if (err) {
+            res.status(500);
+            res.json({ code: 500, err });
+        } else {
+            res.json({ ok: true, post: coin });
+        }
+    });
 }
 
 CoinController.getAvailable = function (req, res) {
-    useParamToSearch({ isAvailable: req.params.isAvailable }, res);
+    coinModel.findOne({ isAvailable: req.params.isAvailable }, function (err, coin) {
+        if (err) {
+            res.status(500);
+            res.json({ code: 500, err });
+        } else {
+            res.json({ ok: true, post: coin });
+        }
+    });
 }
 
 CoinController.getImage = function (req, res) {
-    useParamToSearch({ image: req.params.image }, res);
+    coinModel.findOne({ image: req.params.image }, function (err, coin) {
+        if (err) {
+            res.status(500);
+            res.json({ code: 500, err });
+        } else {
+            res.json({ ok: true, post: coin });
+        }
+    });
 }
 
 CoinController.update = function (req, res) {
@@ -105,7 +168,7 @@ CoinController.delete = function (req, res) {
         }
     });
 };
-
+/*
 let useParamToSearch = function (param, res) {
     coinModel.findOne(param, function (err, coin) {
         if (err) {
@@ -115,6 +178,6 @@ let useParamToSearch = function (param, res) {
             res.json({ ok: true, post: coin });
         }
     });
-}
+}*/
 
 module.exports = CoinController;
