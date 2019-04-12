@@ -10,7 +10,7 @@ router.get('/', CoinController.getAll);
 router.get('/:id', CoinController.get);
 
 // Update
-router.put('/:id', PostController.update);
+router.put('/:id', CoinController.update);
 
 // Delete
 router.delete('/:id', CoinController.delete);
