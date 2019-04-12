@@ -38,6 +38,7 @@ CoinController.getAll = function (req, res) {
 };
 
 CoinController.getId = function (req, res) {
+    console.log(req.params, req.query)
     coinModel.findOne({ _id: req.params.id }, function (err, coin) {
         if (err) {
             res.status(500);
@@ -49,7 +50,8 @@ CoinController.getId = function (req, res) {
 }
 
 CoinController.getName = function (req, res) {
-    coinModel.findOne({ name: req.params.name }, function (err, coin) {
+    console.log(req.params, req.query)
+    coinModel.find({ name: req.params.name }, function (err, coin) {
         if (err) {
             res.status(500);
             res.json({ code: 500, err });
@@ -60,6 +62,7 @@ CoinController.getName = function (req, res) {
 }
 
 CoinController.getCountry = function (req, res) {
+    console.log(req.params, req.query)
     coinModel.findOne({ country: req.params.country }, function (err, coin) {
         if (err) {
             res.status(500);
