@@ -10,4 +10,4 @@ let CoinModel = new mongoose.Schema({
     image: { type: String }
 });
 
-module.exports = mongoose.model('Post', CoinModel);
+module.exports = mongoose.model('Coin', CoinModel);

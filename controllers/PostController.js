@@ -1,10 +1,9 @@
 const mongoose = require('mongoose'),
-    coinModel = require('../models/Post');
+    coinModel = require('../models/Coin');
 
-const PostController = {};
+const CoinController = {};
 
-PostController.create = function (req, res) {
-    // Codigo de obtener datos de la peticion
+CoinController.create = function (req, res) {
     let data = {
         name: req.body.name,
         value: req.body.value,
@@ -14,10 +13,9 @@ PostController.create = function (req, res) {
         isAvailable: req.body.isAvailable,
         image: req.body.image
     };
-    // Crear un objeto post
-    let nuevoPost = new coinModel(data);
-    // Guardar en la base datos
-    nuevoPost.save(function (err, guardado) {
+    let newCoin = new coinModel(data);
+
+    newCoin.save(function (err, guardado) {
         if (err) {
             res.status(500);
             res.json({ code: 500, err });
@@ -27,44 +25,39 @@ PostController.create = function (req, res) {
     });
 };
 
-PostController.getAll = function (req, res) {
-    // Obtener todos los post de la base datos
-    coinModel.find({}, function (err, posts) {
+CoinController.getAll = function (req, res) {
+    coinModel.find({}, function (err, coins) {
         if (err) {
             res.status(500);
             res.json({ code: 500, err });
         } else {
-            res.json({ ok: true, posts });
+            res.json({ ok: true, posts: coins });
         }
     });
-    // Enviarlos como respuesta en JSON
 };
 
-PostController.get = function (req, res) {
-    // Buscar por id, el psot
-    coinModel.findOne({ _id: req.params.id }, function (err, post) {
+CoinController.get = function (req, res) {
+    coinModel.findOne({ _id: req.params.id }, function (err, coin) {
         if (err) {
             res.status(500);
             res.json({ code: 500, err });
         } else {
-            res.json({ ok: true, post });
+            res.json({ ok: true, post: coin });
         }
     });
-    // si se encontro darlo como JSON
-    // sino err
 }
 
-/*
-PostController.update = function (req, res) {
-    //Obtener los datos actulizar
+CoinController.update = function (req, res) {
     let update = {
-        nombre: req.body.nombre,
-        autor: req.body.autor
+        name: req.body.name,
+        value: req.body.value,
+        value_us: req.body.value_us,
+        year: req.body.year,
+        review: req.body.review,
+        isAvailable: req.body.isAvailable,
+        image: req.body.image
     };
-    // Validar los datos
-
-    // Ejecutar una actualizacion en la base datos
-    postModel.findByIdAndUpdate(req.params.id, update, function (err, old) {
+    coinModel.findByIdAndUpdate(req.params.id, update, function (err, old) {
         if (err) {
             res.status(500);
             res.json({ code: 500, err });
@@ -72,24 +65,18 @@ PostController.update = function (req, res) {
             res.json({ ok: true, old, update });
         }
     });
-
-
-    // Respoden si tuvo exito
-    // o no 
 };
-*/
 
-PostController.delete = function (req, res) {
-    // intentar eliminar
-    coinModel.findByIdAndRemove(req.params.id, function (err, eleminado) {
+
+CoinController.delete = function (req, res) {
+    coinModel.findByIdAndRemove(req.params.id, function (err, deleted) {
         if (err) {
             res.status(500);
             res.json({ code: 500, err });
         } else {
-            res.json({ ok: true, eleminado });
+            res.json({ ok: true, deleted });
         }
     });
-    // noitifcar resultado 
 };
 
-module.exports = PostController;
+module.exports = CoinController;
