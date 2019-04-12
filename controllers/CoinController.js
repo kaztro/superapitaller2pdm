@@ -51,7 +51,7 @@ CoinController.getId = function (req, res) {
 
 CoinController.getName = function (req, res) {
     console.log(req.params, req.query)
-    coinModel.find({ name: req.params.name }, function (err, coin) {
+    coinModel.find({ name: {$regex: `.*${req.params.name}.*`}  }, function (err, coin) {
         if (err) {
             res.status(500);
             res.json({ code: 500, err });
@@ -60,7 +60,7 @@ CoinController.getName = function (req, res) {
         }
     });
 }
-
+//jsonwebtoken
 CoinController.getCountry = function (req, res) {
     console.log(req.params, req.query)
     coinModel.findOne({ country: req.params.country }, function (err, coin) {
