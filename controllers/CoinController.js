@@ -59,7 +59,7 @@ CoinController.getName = function (req, res) {
         }
     });
 }
-//jsonwebtoken
+
 CoinController.getCountry = function (req, res) {
     console.log(req.params, req.query)
     coinModel.findOne({ country: req.params.country }, function (err, coin) {

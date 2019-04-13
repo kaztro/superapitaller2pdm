@@ -19,7 +19,6 @@ router.get('/review/:review', Auth, CoinController.getReview);
 router.get('/available/:isAvailable', Auth, CoinController.getAvailable);
 router.get('/image/:image', Auth, CoinController.getImage);
 router.post('/signup', AuthController.emailSignup);
-//router.post('/signin', AuthController.emailLogin)
 
 // Update
 router.put('/id/:id', CoinController.update);
