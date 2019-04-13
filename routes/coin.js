@@ -5,7 +5,7 @@ var express = require('express'),
     Auth = require('../middlewares/middleware');
 
 // Create
-router.post('/', CoinController.create);
+router.post('/',  Auth, CoinController.create);
 
 // Read
 router.get('/coin', Auth, CoinController.getAll);
