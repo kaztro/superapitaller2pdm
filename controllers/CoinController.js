@@ -37,7 +37,6 @@ CoinController.getAll = function (req, res) {
 };
 
 CoinController.getId = function (req, res) {
-    console.log(req.params, req.query)
     coinModel.findOne({ _id: req.params.id }, function (err, coin) {
         if (err) {
             res.status(500);
@@ -49,7 +48,6 @@ CoinController.getId = function (req, res) {
 }
 
 CoinController.getName = function (req, res) {
-    console.log(req.params, req.query)
     coinModel.find({ name: {$regex: `.*${req.params.name}.*`}  }, function (err, coin) {
         if (err) {
             res.status(500);
@@ -61,7 +59,6 @@ CoinController.getName = function (req, res) {
 }
 
 CoinController.getCountry = function (req, res) {
-    console.log(req.params, req.query)
     coinModel.findOne({ country: req.params.country }, function (err, coin) {
         if (err) {
             res.status(500);
@@ -73,7 +70,7 @@ CoinController.getCountry = function (req, res) {
 }
 
 CoinController.getValue = function (req, res) {
-    coinModel.findOne({ value: req.params.value }, function (err, coin) {
+    coinModel.find({ value: {$regex: `.*${req.params.value}.*`}  }, function (err, coin) {
         if (err) {
             res.status(500);
             res.json({ code: 500, err });
@@ -84,7 +81,7 @@ CoinController.getValue = function (req, res) {
 }
 
 CoinController.getVU = function (req, res) {
-    coinModel.findOne({ value_us: req.params.value_us }, function (err, coin) {
+    coinModel.find({ value_us: {$regex: `.*${req.params.value_us}.*`}  }, function (err, coin) {
         if (err) {
             res.status(500);
             res.json({ code: 500, err });
@@ -95,7 +92,7 @@ CoinController.getVU = function (req, res) {
 }
 
 CoinController.getYear = function (req, res) {
-    coinModel.findOne({ year: req.params.year }, function (err, coin) {
+    coinModel.find({ year: req.params.year }, function (err, coin) {
         if (err) {
             res.status(500);
             res.json({ code: 500, err });
@@ -117,7 +114,7 @@ CoinController.getReview = function (req, res) {
 }
 
 CoinController.getAvailable = function (req, res) {
-    coinModel.findOne({ isAvailable: req.params.isAvailable }, function (err, coin) {
+    coinModel.find({ isAvailable: req.params.isAvailable }, function (err, coin) {
         if (err) {
             res.status(500);
             res.json({ code: 500, err });
@@ -170,16 +167,5 @@ CoinController.delete = function (req, res) {
         }
     });
 };
-/*
-let useParamToSearch = function (param, res) {
-    coinModel.findOne(param, function (err, coin) {
-        if (err) {
-            res.status(500);
-            res.json({ code: 500, err });
-        } else {
-            res.json({ ok: true, post: coin });
-        }
-    });
-}*/
 
 module.exports = CoinController;
