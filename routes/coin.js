@@ -8,7 +8,7 @@ var express = require('express'),
 router.post('/', CoinController.create);
 
 // Read
-router.get('/', CoinController.getAll);
+router.get('/coin', CoinController.getAll);
 router.get('/id/:id', CoinController.getId);
 router.get('/name/:name', CoinController.getName);
 router.get('/country/:country', CoinController.getCountry);

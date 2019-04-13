@@ -1,5 +1,4 @@
-const mongoose = require('mongoose'),
-    coinModel = require('../models/Coin');
+const coinModel = require('../models/Coin');
 
 const CoinController = {};
 

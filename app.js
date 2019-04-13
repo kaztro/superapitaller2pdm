@@ -10,8 +10,6 @@ var mongoose = require('mongoose');
 //var AuthController = require('./controllers/AuthController');
 //var authMiddleware = require('./middlewares/middleware');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var postRouter = require('./routes/coin');
 
 mongoose.Promise = global.Promise;
@@ -33,9 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/api/coin', postRouter);
+app.use('/api', postRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

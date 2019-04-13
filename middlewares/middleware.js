@@ -1,4 +1,5 @@
 var service = require('../services/services')
+
 function isAuth(req, res, next) {
     if (!req.headers.authorization) {
         return res
@@ -6,7 +7,7 @@ function isAuth(req, res, next) {
             .send({ message: "NO PUEDES VER NADA!" });
     }
 
-    var token = req.headers.authorization.split(" ")[1];
+    var token = req.headers.authorization.split(' ')[1];
 
     service.decodeToken(token)
         .then(response => {
